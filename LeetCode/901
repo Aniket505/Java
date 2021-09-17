@@ -1,0 +1,29 @@
+// BRUTE FORCE
+class StockSpanner {
+
+    ArrayList<Integer> arr;
+    int index;
+    public StockSpanner() {
+        arr = new ArrayList<Integer>();
+        index = -1;
+    }
+    
+    public int next(int price) {
+        int count = 1;
+        int temp = index;
+        arr.add(price);
+        
+        while(index != -1 && price >= arr.get(index) )
+        {
+            count++;
+            index--;
+        }
+        
+        index = temp;
+        index++;
+        
+        return count;
+        
+    }
+}
+
