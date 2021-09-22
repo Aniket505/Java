@@ -1,0 +1,44 @@
+class Pair {
+    int index;
+    int val;
+    Pair(int i, int price)
+    {
+        index = i;
+        val = price;
+    }
+}
+
+class StockSpanner {
+
+    Stack<Pair> S;
+    int count = 0;
+    
+    public StockSpanner() {
+        S = new Stack<>();
+    }
+    
+    public int next(int price) {
+        int ans = 1;
+        
+        // pop untill a element greater to current element is found.
+        while(!S.isEmpty() && S.peek().val <= price) 
+        {
+            S.pop();
+        }
+        
+        // if stack becomes empty
+        if(S.isEmpty())
+        {
+            ans = count + 1;
+        }
+        else
+        {
+            ans = count - S.peek().index;
+        }
+        
+        // push index and value associated with it into stack
+        S.push(new Pair(count++,price));
+        
+        return ans;
+    }
+}
