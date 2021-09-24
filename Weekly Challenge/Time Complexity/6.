@@ -1,0 +1,7 @@
+Q6.   https://www.interviewbit.com/problems/nestedcmpl3/
+
+Sol_6.  Total Runs = N + N/2 + N/4 +  . . .
+                   
+                   = N(1 + 1/2 + 1/4 + . . . )
+                   
+                   = O(N)
