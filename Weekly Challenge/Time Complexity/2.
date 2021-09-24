@@ -1,0 +1,8 @@
+Q2.  https://www.interviewbit.com/problems/nestedcmpl/
+
+Sol_2->  The first loop is nested loop having complexity = O(N^2)
+         Second loop has complexity = O(N)
+         
+         Time Complexity = O(max(N^2,N)) = O(N^2)
+         
+         Space Complexity = O(1)
