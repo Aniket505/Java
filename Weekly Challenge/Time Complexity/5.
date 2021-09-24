@@ -1,0 +1,11 @@
+Q5.  https://www.interviewbit.com/problems/whilecmpl/
+
+Sol_5. Time Complexity =>  N / 2^x < 1
+
+                           N < 2^x  ( Taking log)
+                           
+                           log(N) < xlog2
+                           
+                           x > log(N)
+                           
+         Time Complexity = O(log(N))
