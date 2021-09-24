@@ -1,0 +1,5 @@
+Q11.  https://www.interviewbit.com/problems/choose2/
+
+Sol_11.  According to value of functions
+
+       nLogn < n^(3/2) < n^(Logn) < 2^n
