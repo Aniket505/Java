@@ -1,0 +1,7 @@
+Q7.  https://www.interviewbit.com/problems/loopcmpl2/
+
+Sol_7. Loop i runs N/2 times and Loop j runs log(N) times.
+
+       Time Complexity = O((N/2) * log(N))
+                       
+                       = O(Nlog(n)) 
