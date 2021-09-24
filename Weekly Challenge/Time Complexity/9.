@@ -1,0 +1,8 @@
+Q9.  https://www.interviewbit.com/problems/choose3/
+
+Sol_9.  Loop1 -> O(N)
+        Loop2 -> O(N/2)
+        Loop3 -> O(log(N))
+        Loop4 -> Loop does not terminate.
+        
+        Loop3 Is Most Efficient.
