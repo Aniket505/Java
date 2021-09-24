@@ -1,0 +1,6 @@
+Q1. https://www.interviewbit.com/problems/loopcmpl/
+        
+Sol.->  The first loop is O(N) and second loop is O(M).
+        Time Complexity = O( N + M )
+        
+        Space Complexity = O(1) Since No extra space is used.
