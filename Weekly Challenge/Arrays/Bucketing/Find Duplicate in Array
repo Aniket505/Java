@@ -1,0 +1,21 @@
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int repeatedNumber(final int[] A) {
+        HashMap<Integer,Boolean> res = new HashMap<Integer,Boolean>();
+
+        for(int i = 0 ; i < A.length ; i++)
+        {
+            if(res.containsKey(A[i]))
+            {
+                return A[i];
+            }
+            else
+            {
+                res.put(A[i],true);
+                continue;
+            }
+        }
+
+        return -1;
+    }
+}
