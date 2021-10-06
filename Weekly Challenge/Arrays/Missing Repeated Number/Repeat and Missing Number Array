@@ -1,7 +1,7 @@
 public class Solution {
     // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
     public int[] repeatedNumber(final int[] A) {
-        HashMap<Integer,Boolean> map = new HashMap<>();
+        HashMap<Integer,Boolean> map = new HashMap<>() ;
         int[] temp = new int[2];
         for (Integer i : A) {
  
