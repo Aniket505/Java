@@ -1,1 +1,24 @@
+public class Solution {
+    public int firstMissingPositive(int[] A) {
+        Set<Integer> set = new HashSet<>();
+        Integer[] arr = new Integer[A.length];
 
+        for(int i = 0 ; i < A.length; i++)
+        {
+            arr[i] = Integer.valueOf(A[i]);
+        }
+
+        Collections.addAll(set,arr);
+
+        int index = 1;
+
+        while(true)
+        {
+            if(!set.contains(index))
+            {
+                return index;
+            }
+            index++;
+        }
+    }
+}
