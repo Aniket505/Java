@@ -1,0 +1,21 @@
+public class Solution {
+    // DO NOT MODIFY THE ARGUMENTS WITH "final" PREFIX. IT IS READ ONLY
+    public int[] repeatedNumber(final int[] A) {
+        HashMap<Integer,Boolean> map = new HashMap<>();
+        int[] temp = new int[2];
+        for (Integer i : A) {
+ 
+            if (map.get(i) == null) {
+                map.put(i, true);
+            }
+            else {
+                temp[0] = i;
+            }
+        }
+        for (int i = 1; i <= A.length; i++) {
+            if (map.get(i) == null) {
+                temp[1] = i;
+            }
+        }
+        return temp;
+    }
