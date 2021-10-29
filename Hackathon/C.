@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class Main {
+
+        static void distinct(int[] nums) {
+        Map<Integer,Integer> map = new HashMap<>();
+        int flag = 0;
+        for(int i = 0 ; i < nums.length ; i++)
+        {
+            if(map.containsKey(nums[i]))
+            {
+                flag = 1;
+                break;
+            }
+            
+            map.put(nums[i],i);    
+        }
+        
+        if(flag == 1)
+            System.out.println("Yes");
+        else
+            System.out.println("No");
+        
+    }
+
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+		int tc = Integer.parseInt(sc.next());
+        
+        while(tc-- != 0)
+        {
+            int n = Integer.parseInt(sc.next());
+            
+            int[] arr = new int[n];
+            for (int i = 0; i < n; i++) {
+		        arr[i] = sc.nextInt();
+		    }
+
+            distinct(arr);
+
+        }
+
+    }
+    
+}
