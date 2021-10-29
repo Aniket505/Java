@@ -1,0 +1,35 @@
+import java.util.*;
+
+class NumOfSubArrays
+{
+	public static void main (String[] args) 
+	{
+		
+		Scanner sc = new Scanner(System.in);
+		int tc = Integer.parseInt(sc.next());
+		
+		while (tc-- != 0) {
+		    int n = Integer.parseInt(sc.next());
+		    long[] arr = new long[n];
+		    long prev = 1;
+		    long sum = prev;
+		    
+		    for (int j = 0; j < n; j++) {
+		        arr[j] = sc.nextLong();
+		    }
+		    
+		    for (int i = 1; i < n; i++) {
+		        if (arr[i] >= arr[i - 1]) {
+		            prev += 1;
+		        }
+		        else {
+		            prev = 1;
+		        }
+		        sum += prev;
+		    }
+		    
+		    System.out.println(sum);
+            
+		}
+	}
+}
