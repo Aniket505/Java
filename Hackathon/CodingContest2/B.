@@ -1,0 +1,42 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		Scanner sc = new Scanner(System.in);
+		
+		int t = sc.nextInt();
+		
+		while(t-- != 0)
+		{
+		    int n = sc.nextInt();
+		    int[] arr = new int[n];
+		    Map<Integer , Integer> map = new HashMap<Integer , Integer>();
+		    for(int i = 0 ; i < n ; i++)
+		    {
+		        arr[i] = sc.nextInt();
+		    }
+		    for(int i = 0 ; i < n ; i++)
+		    {
+		        if(!map.containsKey(arr[i]))
+		            map.put(arr[i], 1);
+		        else
+		        {   		        
+		            map.put(arr[i],map.get(arr[i]) + 1 );
+		        }
+		    }
+		    
+		    Iterator it = map.entrySet().iterator();
+		    int ans = 0;
+		    while (it.hasNext()) {
+                Map.Entry mapElement = (Map.Entry)it.next();
+                ans = ans + (n - (int)mapElement.getValue())*((int)mapElement.getValue());
+            }
+            
+            System.out.println(ans);
+		}
+	}
+}
