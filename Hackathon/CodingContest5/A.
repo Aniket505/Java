@@ -1,0 +1,39 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+public class Main
+{
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		int sum = 0;
+		int p = sc.nextInt();
+		
+		int n = sc.nextInt();
+		
+		boolean[] res = new boolean[p];
+		
+		for(int i = 0 ; i < n ; i++)
+		{
+		    int t = sc.nextInt();
+		    
+		    if(res[t % p] == true)
+		    {
+		        sum = i + 1;
+		        break;
+		    }
+		    else
+		    {
+		        res[t % p] = true;
+		    }
+		}
+		if(sum == 0)
+		{
+	        System.out.println(-1);
+		}
+		else
+		{
+		    System.out.println(sum);
+		}
+	}
+}
