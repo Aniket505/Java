@@ -1,0 +1,92 @@
+import java.util.*;
+public class Main
+{
+    public static void findIsland(int i, int j, int row, int col, int[][]arr, int[][] visited)
+    {
+        if (i >= row) 
+        {
+            return;
+        }
+           
+        if (j >= col) 
+        {
+            return;
+        }
+            
+        if (j < 0) 
+        {
+            return;
+        }
+           
+        if (i < 0) 
+        {
+            return;
+        }
+        
+        if (arr[i][j] == 0) 
+        {
+            return;
+        }
+            
+        if (visited[i][j] == 1) 
+        {
+            return;
+        }
+        
+        visited[i][j] = 1;
+        
+        findIsland(i-1, j-1, row, col, arr, visited);
+        findIsland(i-1, j, row, col, arr, visited);
+        findIsland(i-1, j+1, row, col, arr, visited);
+        findIsland(i, j-1, row, col, arr, visited);
+        findIsland(i, j+1, row, col, arr, visited);
+        findIsland(i+1, j-1, row, col, arr, visited);
+        findIsland(i+1, j, row, col, arr, visited);
+        findIsland(i+1, j+1, row, col, arr, visited);
+    }
+    
+    public static int sol(int[][] arr, int row, int col)
+    {
+        int[][] visited = new int[row][col];
+        int ans =0;
+        for(int i = 0 ; i < row ; i++)
+        {
+            for(int j = 0 ; j < col; j++)
+            {
+                if(visited[i][j] == 1)
+                    continue;
+                    
+                if(arr[i][j] == 0)
+                    continue;
+                    
+                ans++;
+                findIsland(i,j,row,col,arr,visited);
+            }
+        }
+        return ans;
+    }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int t= sc.nextInt();
+		
+		while(t-- > 0)
+		{
+		    int row = sc.nextInt();
+		    int col = sc.nextInt();
+		
+		    int[][] arr = new int[row][col];
+		
+		    for(int i = 0 ; i < row; i++)
+		    {
+		        for(int j = 0 ; j < col; j++)
+		        {
+		            arr[i][j] = sc.nextInt();
+		        }
+		    }
+		    int ans = sol(arr, row, col);
+		
+		    System.out.println(ans);
+		}
+	}
+}
