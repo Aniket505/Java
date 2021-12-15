@@ -1,10 +1,31 @@
 import java.util.*;
-import java.lang.*;
-import java.io.*;
+
 public class Main
 {
+    
+    static int sol(int[] arr, int n)
+    {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        int result = 0;
+        
+        for(int i = 0 ; i < n; i++)
+        {
+            int x = arr[i] - i;
+            
+            if(map.containsKey(x))
+            {
+                result += map.get(x);
+                map.put(x, map.get(x) +1);
+            }
+            else
+                map.put(x, 1);
+        }
+        
+        return result;
+        
+    }
+    
 	public static void main(String[] args) {
-		
 		Scanner sc = new Scanner(System.in);
 		
 		int t = sc.nextInt();
@@ -15,47 +36,15 @@ public class Main
 		    
 		    int[] arr = new int[n];
 		    
-		    for(int i = 0 ; i < n ; i++)
+		    for(int i = 0; i < n ; i++)
 		    {
 		        arr[i] = sc.nextInt();
 		    }
 		    
-		    for(int i = 0 ; i < n ; i++)
-		    {
-		        arr[i] = arr[i] - i;
-		    }
+		    int result = sol(arr, n);
 		    
-		    Map<Integer, Integer> map = new HashMap<Integer, Integer>();
-		    
-		    for(int i = 0 ; i < n ; i++)
-		    {
-		        if(!map.containsKey(arr[i]))
-		        {
-		            map.put(arr[i], 1);
-		        }
-		        else
-		        {
-		            map.put(arr[i], map.get(arr[i]) + 1);
-		        }
-		    }
-		    
-		    Iterator it = map.entrySet().iterator();
-		    int ans = 0;
-		    while (it.hasNext()) {
-                Map.Entry mapElement = (Map.Entry)it.next();
-                
-                int sec = (int)mapElement.getValue();
-                
-                if(sec > 1)
-                {
-                    ans = ans + sec*(sec - 1)/2;
-                }
-                
-            }
-            
-            System.out.println(ans);
-		    
+		    System.out.println(result);
 		}
-		
 	}
 }
+
