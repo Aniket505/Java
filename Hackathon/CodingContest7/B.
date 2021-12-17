@@ -1,0 +1,62 @@
+import java.util.*;
+
+public class Main
+{
+    static int max;
+    static int maxNode;
+    public static void addEdge(ArrayList<ArrayList<Integer>> adj, int u , int v)
+    {
+        adj.get(u).add(v);
+        adj.get(v).add(u);
+    }
+    
+    public static void dfs(int node, ArrayList<ArrayList<Integer>> adj , boolean[] visited , int x)
+    {
+        visited[node] = true;
+        
+        if(x > max)
+        {
+            max = x;
+            maxNode = node;
+        }
+        
+        for(int it : adj.get(node))
+        {
+            if(!visited[it])
+            {
+                dfs(it,adj,visited,x+1);
+            }
+        }
+    }
+    
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		max =-1;
+		int n = sc.nextInt();
+		ArrayList<ArrayList<Integer>> adj = new ArrayList<>();
+		boolean visited[] = new boolean[n+1];
+		
+		for(int i = 0 ; i <= n ; i++)
+		{
+		    adj.add(new ArrayList<>());
+		}
+		for(int i = 1 ; i < n ; i++)
+		{
+		    int u = sc.nextInt();
+		    int v = sc.nextInt();
+		    addEdge(adj, u , v);
+		}
+		
+		dfs(1,adj,visited,0);
+		
+		for(int i = 0 ; i < visited.length ; i++ )
+		{
+		    visited[i] = false; 
+		}
+		
+		dfs(maxNode, adj , visited , 0);
+		
+		System.out.println(max);
+		
+	}
+}
