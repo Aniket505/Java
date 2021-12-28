@@ -1,0 +1,57 @@
+class HashMap{
+    LinkedList<Entry>[] map;
+    private int SIZE = 100;
+    public HashMap{
+        map = new LinkedList[SIZE];
+    }
+    
+    public void put(int key ,int value)
+    {
+        int bucket = key % SIZE;
+        if(map[bucket] == null)
+        {
+            map[bucket] = new LinkedList<Entry>();
+            map[bucket].add(new Entry(key,value));
+        }
+        else
+        {
+            for(Entry it : map[bucket)
+            {
+                if(it.key == key)
+                {
+                    it.value = value;
+                    return;
+                }
+            }
+            map[bucket].add(new Entry(key,value));
+        }
+    }
+    
+    public int get(int key)
+    {
+        int bucket = key % SIZE;
+        LinkedList<Entry> x = map[bucket];
+        
+        if(x == null)
+            return -1;
+            
+        for(Entry it : map[bucket])
+        {
+            if(it.key == key)
+                return it.value;
+        }
+        
+        return -1;
+        
+    }
+
+    class Entry {
+        public int key;
+        public int value;
+    
+        Entry(int key, int value)
+        {
+            this.key = key;
+            this.value = value;
+        }
+}
