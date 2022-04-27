@@ -1,0 +1,41 @@
+import java.util.*;
+class Solution {
+    public String reverse(String s)
+    {
+        String rev = "";
+        for(int i = s.length()-1 ; i >= 0; i--)
+        {
+            rev = rev+s.charAt(i);
+        }
+        return rev;
+    }
+    public String longestPalindrome(String s) {
+        String res = "";
+        int len = 0;
+        if(s.length() == 0)
+        {
+            return "";
+        }
+        if(s.length() == 1)
+        {
+            return s;
+        }
+        for(int i = 0 ; i < s.length() - 1 ;i++)
+        {
+            for(int j = i; j < s.length(); j++)
+            {
+                String str = s.substring(i,j);
+                String rev = "";
+                rev = str;
+                rev = reverse(str);
+                if(rev.equals(str) && len < str.length())
+                {
+                    len = str.length();
+                    res = str;  
+                    System.out.println(res);
+                }
+            }
+        }
+        return res;
+    }
+}
