@@ -1,0 +1,68 @@
+import java.util.*;
+class monster{
+    int power;
+    int bonus;
+    monster(int power, int bonus)
+    {
+        this.power = power;
+        this.bonus = bonus;
+    }
+}
+class monsterComparator implements Comparator<monster>
+{
+    public int compare(monster o1, monster o2)
+    {
+        if(o1.power < o2.power)
+            return -1;
+        else if(o1.power > o2.power)
+            return 1;
+        else if(o1.bonus < o2.bonus)
+            return -1;
+        return 1;
+    }
+}
+public class Main
+{
+    static int maxMonsters(int power[], int bonus[], int exp)
+    {
+        ArrayList<monster> arr = new ArrayList<>();
+        for(int i = 0; i < power.length; i++)
+        {
+            arr.add(new monster(power[i], bonus[i]));
+        }
+        monsterComparator mc = new monsterComparator();
+        Collections.sort(arr, mc);
+        int max = 0;
+        /*for(int i = 0 ; i < arr.size(); i++)
+        {
+            System.out.println("power = " + arr.get(i).power + " bonus = " + arr.get(i).bonus );
+        }*/
+        for(int i = 0; i < arr.size(); i++)
+        {
+            if(arr.get(i).power <= exp)
+            {
+                exp += arr.get(i).bonus;
+                max++;
+            }
+        }
+        return max;
+    }
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int n = sc.nextInt();
+		int exp = sc.nextInt();
+		int[] power = new int[n];
+		int[] bonus = new int[n];
+		for(int i = 0; i < n; i++)
+		{
+		    power[i] = sc.nextInt();
+		}
+		for(int i = 0; i < n; i++)
+		{
+		    bonus[i] = sc.nextInt();
+		}
+		int res = maxMonsters(power, bonus, exp);
+		System.out.println(res);
+		
+	}
+}
